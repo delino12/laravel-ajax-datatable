@@ -39,35 +39,35 @@ class Transaction extends Model
     	return $trans_box;
     }
 
-    /*
-    |---------------------------------------------
-    | DELETE ONE TRANSACTION ID
-    |---------------------------------------------
-    */
-    public function deleteOneRecord($trans_id){
-    	// check if id is valid
-    	$transaction = Transaction::where("id", $trans_id)->first();
-    	if($transaction !== null){
-    		$delete_record = Transaction::find($trans_id)->delete();
-    		if($delete_record == true){
-    			$data = [
-    				'status' 	=> 'success',
-    				'message' 	=> 'Deleted!',
-    			];
-    		}else{
-    			$data = [
-    				'status' 	=> 'error',
-    				'message' 	=> 'Failed to delete record!',
-    			];
-    		}
-    	}else{
-    		$data = [
-    			'status' 	=> 'error',
-    			'message' 	=> 'Could not find record!',
-    		];
-    	}
+	/*
+	|---------------------------------------------
+	| DELETE ONE TRANSACTION ID
+	|---------------------------------------------
+	*/
+	public function deleteOneRecord($trans_id){
+		// check if id is valid
+		$transaction = Transaction::where("id", $trans_id)->first();
+		if($transaction !== null){
+			$delete_record = Transaction::find($trans_id)->delete();
+			if($delete_record == true){
+				$data = [
+					'status' 	=> 'success',
+					'message' 	=> 'Deleted!',
+				];
+			}else{
+				$data = [
+					'status' 	=> 'error',
+					'message' 	=> 'Failed to delete record!',
+				];
+			}
+		}else{
+			$data = [
+				'status' 	=> 'error',
+				'message' 	=> 'Could not find record!',
+			];
+		}
 
-    	// return data
-    	return $data;
-    }
+		// return data
+		return $data;
+	}
 }

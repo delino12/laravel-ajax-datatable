@@ -20,16 +20,16 @@ class TransactionsController extends Controller
     	return response()->json($data);
     }
 
-    /*
-    |---------------------------------------------
-    | DELETE ONE
-    |---------------------------------------------
-    */
-    public function deleteOne(Request $request){
-    	$transactions 	= new Transaction();
-    	$data 			= $transactions->deleteOneRecord($request->transid);
+	/*
+	|---------------------------------------------
+	| DELETE ONE
+	|---------------------------------------------
+	*/
+	public function deleteOne(Request $request){
+		$transactions 	= new Transaction();
+		$data 			= $transactions->deleteOneRecord($request->transid);
 
-    	// return response
-    	return response()->json($data);
-    }
+		// return response
+		return response()->json($data);
+	}
 }
